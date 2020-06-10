@@ -13,16 +13,27 @@ return elements in First In First Out order.
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+# you just have to change where the self.storage is coming from
+# as well as change enqueue and dequeue to instead of append and pop to get from head and remove
+# from the tail
+
+
 class Queue:
     def __init__(self):
         self.size = 0
         # self.storage = ?
-    
+        self.storage = []
+
     def __len__(self):
-        pass
+        return self.size
 
     def enqueue(self, value):
-        pass
+        self.size += 1
+        self.storage.append(value)
 
     def dequeue(self):
-        pass
+        if self.size == 0:
+            return None
+        else:
+            self.size -= 1
+            return self.storage.pop(0)

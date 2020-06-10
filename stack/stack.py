@@ -1,25 +1,36 @@
 """
 A stack is a data structure whose primary purpose is to store and
-return elements in Last In First Out order. 
+return elements in Last In First Out order.
 
 1. Implement the Stack class using an array as the underlying storage structure.
    Make sure the Stack tests pass.
 2. Re-implement the Stack class, this time using the linked list implementation
    as the underlying storage structure.
    Make sure the Stack tests pass.
-3. What is the difference between using an array vs. a linked list when 
+3. What is the difference between using an array vs. a linked list when
    implementing a Stack?
 """
+# you just have to change where the self.storage is coming from
+# as well as change enqueue and dequeue to instead of append and pop to get from head and remove
+# from the tail
+
+
 class Stack:
     def __init__(self):
         self.size = 0
         # self.storage = ?
+        self.storage = []
 
     def __len__(self):
-        pass
+        return self.size
 
     def push(self, value):
-        pass
+        self.size += 1
+        self.storage.append(value)
 
     def pop(self):
-        pass
+        if self.size is 0:
+            return None
+        else:
+            self.size -= 1
+            return self.storage.pop()
